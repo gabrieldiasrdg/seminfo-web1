@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminfo 3.1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <h1>Seminfo 3.2</h1>
+        <p>Sistema de Inscrições da Semana de Informática 2026</p>
+<section>
+    <h2>Inscrição de Participantes</h2>
+    <h2>Nova Inscrição</h2>
+<form id="form-inscricao">
+    <section>
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" required>
+
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" min="1" max="120" step="1" required>
+
+        <label for="curso">Curso</label>
+        <select id="curso" required>
+            <option value="" hidden>Selecione seu curso</option>
+            <option value="Sistemas de Informação">Sistemas de Informação</option>
+            <option value="Engenharia de Software">Engenharia de Software</option>
+            <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+        </select>
+
+        <label for="matricula">Matrícula</label>
+        <input type="text" id="matricula" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required>
+    </section>
+
+    <section>
+        <h2>2. Participação em Eventos</h2>
+        <fieldset>
+            <legend>
+                Modalidade
+            </legend>
+            <label>
+                <input type="radio" name="modalidade" value="Ouvinte" required>
+                Ouvinte
+            </label>
+            <label>
+                <input type="radio" name="modalidade" value="Apresentador" required>
+                Apresentador
+            </label>
+            <label>
+                <input type="radio" name="modalidade" value="Organizador">
+                Organizador
+            </label>
+        </fieldset>
+        <label for="minicurso">Minicurso</label>
+        <select id="minicurso" required>
+            <option value = "" hidden>Selecione</option>
+            <option value="python">Introdução ao Python</option>
+            <option value="flutter">Desenvolvimento Mobile</option>
+            <option value="web">Desenvolvimento Web</option>
+            <option value="bd">Banco de Dados MySql</option>
+        </select>
+        <fieldset>
+            <legend>Outras Atividades(Opcional)</legend>
+            <label>
+                <input type="checkbox" name="evento" value="Palestra: IA">
+                Palestra: IA
+            </label>
+            <label>
+                <input type="checkbox" name="evento" value="Mercado de TI">
+                Mercado de TI
+            </label>
+            <label>
+                <input type="checkbox" name="evento" value="Git e Github">
+                Git e Github
+            </label>
+            <label>
+                <input type="checkbox" name="evento" value="Mesa Redonda">
+                Carreiras em TI
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>
+                Turno
+            </legend>
+            <label>
+                <input type="radio" name="turno" value="Matutino" required>
+                Matutino
+            </label>
+            <label>
+                <input type="radio" name="turno" value="Vespertino" required>
+                Vespertino
+            </label>
+            <label>
+                <input type="radio" name="turno" value="Noturno">
+                Noturno
+            </label>
+        </fieldset>
+    </section>
+    <button type="submit">Cadastrar participante</button>
+    <p id="mensagem" role="status"></p>
+</form>
+</section>
+<section>
+    <h2> Participantes  Inscritos</h2>
+    <p>Total: <span id="total">0</span></p>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Curso</th>
+                    <th>Matrícula</th>
+                    <th>Email</th>
+                    <th>Modalidade</th>
+                    <th>Minicurso</th>
+                    <th>Turno</th>
+                    <th>Outras atividades</th>
+                </tr>
+            </thead>
+            <tbody id='tabela-participantes'>
+            </tbody >
+        </table>
+
+    </div>
+</section>     
+    </main>
+    <script src ="js/script.js"></script>
+</body>
+</html>
