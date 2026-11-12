@@ -3,132 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seminfo 3.1</title>
+    <title>Inscrição - Seminfo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="inicio">
+    <header>
+        <b>SEMINFO - SEMANA DE INFORMÁTICA</b>
+        <nav>
+            <a href="index.html"> Minha Instrição</a>
+            <a href="admin.html" id="link-admin" class="hidden">Eventos (Admin)</a>
+            <a href="participantes.html" id="link-participantes" class="hidden">Participantes</a>
+            <a href="#" id="sair">Sair</a>
+        </nav>
+    </header>
     <main>
-        <h1>Seminfo 3.2</h1>
-        <p>Sistema de Inscrições da Semana de Informática 2026</p>
-<section>
-    <h2>Inscrição de Participantes</h2>
-    <h2>Nova Inscrição</h2>
-<form id="form-inscricao">
-    <section>
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" required>
+        <section class="card">
+            <h1>Inscrições - Seminfo</h1>
+            <p>
+                Bem-vindo à Semana de Informática! Confira seus dados e escolha a atividade da qual deseja participar
+            </p>
+        </section>
+        <section class="card">
+            <h2>Dados do Participante</h2>
+            <h3>Olá, <span id="nome-usuario"></span></h3>
+            <p id="perfil-usuario" class="muted"></p>
+            <div id="dados-particiante">
 
-        <label for="idade">Idade</label>
-        <input type="number" id="idade" min="1" max="120" step="1" required>
+            </div>
+        </section>
+        <section>
+            <h2>Inscrições nas Atividades</h2>
+            <div id="inscricao-atual"></div>
+            <form id="form-inscricao" class="hidden">
+                <label>
+                    Escolha o evento
+                    <select name="evento-id" id="evento-select" required></select>
+                </label>
+                <label >
+                    Modalidade
+                    <select name="modalidade" id="modalidade-select" required>Modalidade</select>
+                </label>
+                <button type="submit">Confirmar Inscrição</button>
+            </form>
+            <p id="msg" class="msg"></p>
+            <section class="card">
+                <h2>Participantes Inscrições</h2>1
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Perfil</th>
+                                <th>Curso</th>
+                                <th>Evento</th>
+                                <th>Modalidade</th>
+                                <th class="asmin-only hidden">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-participantes">
 
-        <label for="curso">Curso</label>
-        <select id="curso" required>
-            <option value="" hidden>Selecione seu curso</option>
-            <option value="Sistemas de Informação">Sistemas de Informação</option>
-            <option value="Engenharia de Software">Engenharia de Software</option>
-            <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
-        </select>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-        <label for="matricula">Matrícula</label>
-        <input type="text" id="matricula" required>
-
-        <label for="email">E-mail</label>
-        <input type="email" id="email" required>
-    </section>
-
-    <section>
-        <h2>2. Participação em Eventos</h2>
-        <fieldset>
-            <legend>
-                Modalidade
-            </legend>
-            <label>
-                <input type="radio" name="modalidade" value="Ouvinte" required>
-                Ouvinte
-            </label>
-            <label>
-                <input type="radio" name="modalidade" value="Apresentador" required>
-                Apresentador
-            </label>
-            <label>
-                <input type="radio" name="modalidade" value="Organizador">
-                Organizador
-            </label>
-        </fieldset>
-        <label for="minicurso">Minicurso</label>
-        <select id="minicurso" required>
-            <option value = "" hidden>Selecione</option>
-            <option value="python">Introdução ao Python</option>
-            <option value="flutter">Desenvolvimento Mobile</option>
-            <option value="web">Desenvolvimento Web</option>
-            <option value="bd">Banco de Dados MySql</option>
-        </select>
-        <fieldset>
-            <legend>Outras Atividades(Opcional)</legend>
-            <label>
-                <input type="checkbox" name="evento" value="Palestra: IA">
-                Palestra: IA
-            </label>
-            <label>
-                <input type="checkbox" name="evento" value="Mercado de TI">
-                Mercado de TI
-            </label>
-            <label>
-                <input type="checkbox" name="evento" value="Git e Github">
-                Git e Github
-            </label>
-            <label>
-                <input type="checkbox" name="evento" value="Mesa Redonda">
-                Carreiras em TI
-            </label>
-        </fieldset>
-        <fieldset>
-            <legend>
-                Turno
-            </legend>
-            <label>
-                <input type="radio" name="turno" value="Matutino" required>
-                Matutino
-            </label>
-            <label>
-                <input type="radio" name="turno" value="Vespertino" required>
-                Vespertino
-            </label>
-            <label>
-                <input type="radio" name="turno" value="Noturno">
-                Noturno
-            </label>
-        </fieldset>
-    </section>
-    <button type="submit">Cadastrar participante</button>
-    <p id="mensagem" role="status"></p>
-</form>
-</section>
-<section>
-    <h2> Participantes  Inscritos</h2>
-    <p>Total: <span id="total">0</span></p>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Curso</th>
-                    <th>Matrícula</th>
-                    <th>Email</th>
-                    <th>Modalidade</th>
-                    <th>Minicurso</th>
-                    <th>Turno</th>
-                    <th>Outras atividades</th>
-                </tr>
-            </thead>
-            <tbody id='tabela-participantes'>
-            </tbody >
-        </table>
-
-    </div>
-</section>     
+        </section>
     </main>
-    <script src ="js/app.js"></script>
+    <script src ="js/script.js"></script>
 </body>
 </html>

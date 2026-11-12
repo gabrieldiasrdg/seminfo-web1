@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro seminfo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="cadastro">
+    
+    <header>
+        <b>SEMINFO</b>
+        <nav>
+        <a href="cadastro.html">Criar Conta</a>
+        </nav>
+    </header>
     <main>
-        <header>
-            <b>SEMINFO</b>
-            <nav>
-            <a href="cadastro.html">Criar Conta</a>
-            </nav>
-        </header>
-
         <section class = "card-narrow">
             <h1>Criar Conta</h1>
 
@@ -38,15 +38,16 @@
                     <option value="PROFESSOR">PROFESSOR (Apresentador) </option>
                     <option value="EXTERNO">EXTERNO (Ouvinte ou Apresentador)</option>
                 </select>
+                <div id="campos-alunos">
+                    <label for="matricula">Matrícula</label>
+                    <input type="text" id="matricula" required>
 
-                <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" required>
-
-                <label for="curso">Curso</label>
-                <input type="text" id="curso" required>
-
-                <label for="instituicao">Instituição</label>
-                <input type="text" id="instituicao" required>
+                    <label for="curso">Curso</label>
+                    <input type="text" id="curso" required>
+                    
+                    <label for="instituicao">Instituição</label>
+                    <input type="text" id="instituicao" required>
+                </div>
             </form>
             <p>
             <button>Cadastrar</button>
