@@ -1,6 +1,7 @@
 require("dotenv").config({ path: require("node:path").join(__dirname, ".env") });
 const mysql = require("mysql2/promise");
-const conexao = mysql.createPool( {
+
+const conexao = mysql.createPool({
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT || 3306),
     user: process.env.DB_USER,
@@ -9,4 +10,5 @@ const conexao = mysql.createPool( {
     waitForConnections: true,
     connectionLimit: 10
 });
+
 module.exports = conexao;
